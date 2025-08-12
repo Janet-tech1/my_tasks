@@ -1,0 +1,5 @@
+# Task 1 (Using print to write information)
+print("Name: Bamgbose Janet")
+print("University: Olabisi Onabanjo University")
+print("LGA: Odeda Local Government Area")
+print("Favorite Food: Pounded Yam and Egusi Soup")

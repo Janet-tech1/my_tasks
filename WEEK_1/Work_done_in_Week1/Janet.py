@@ -1,0 +1,10 @@
+print("hello world")
+print("my name is janet")
+print("i am a gentle girl")
+print("i live in abeokuta")
+print("i am a graduate")
+name="janet"
+print (name)
+print ("my name is " + name)
+print ("my name is " +""+name)
+print (f"hello {name}")
