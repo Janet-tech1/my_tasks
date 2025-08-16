@@ -11,66 +11,61 @@
 
 
 # Personal Details
-print("Hello dear student, please fill in the details below for the student profile builder")
-student_name = input("Enter student's full name: ")
-student_age = int(input("Enter student's age: "))
-student_gender = input("Enter gender (Male/Female): ")
-student_matric_num = int(input("Enter student matric number: "))
-student_email = input("Enter student's email: ")
+name = input("Enter student's full name: ")
+age = int(input("Enter student's age: "))
+gender = input("Enter gender (Male/Female): ")
+matric_num = int(input("Enter student matric number: "))
+email = input("Enter student's email: ")
 
-# Academic Scores (5 Subjects)
-print("\nFill in the subjects taken and their scores")
-subjects = ("Maths", "English", "Economics", "Biology", "French")
-scores = tuple(float(input(f"Enter score for {subject}, ")) for subject in subjects)
+# Academic Scores (5 subjects)
+subjects = ("Math", "English", "Economics", "Chemistry", "Biology")
+scores = tuple(float(input(f"Enter score for {subj}: ")) for subj in subjects)
 
-# Guardian Infomation
-print("\nFill in the information of the student's guardian")
+# Guardian Info
 guardian_name = input("Enter guardian's name: ")
-guardian_phone = int(input("Enter guardian's phone number: "))
+guardian_phone = input("Enter guardian's phone number: ")
 guardian_address = input("Enter guardian's address: ")
 
-# Hobbies
-print("\nFill in the student's hobbies")
-hobbies = ()
-hobbies = input("Enter at least 4 hobbies (comma separated): ")
+# Hobbies - ensure uniqueness with set
+hobbies = input("Enter at least 5 hobbies (comma-separated): ")
 hobbies_set = set(h.strip() for h in hobbies.split(","))
-print(hobbies_set)
 
 # Student Dictionary
 student_profile = {
     "Personal Details": {
-       "Name": student_name.title(),
-       "Age": student_age,
-       "Gender": student_gender.capitalize(),
-       "Matric Number": student_matric_num,
-       "Email": student_email.lower()
+        "Name": name.title(),
+        "Age": age,
+        "Gender": gender.capitalize(),
+        "Matric_Number": matric_num,
+        "Email": email.lower()
     },
-# Using zip(key, value)
-    "Academics": {subject: score for subject, score in zip(subjects, scores)},
+    "Academics": {subj: score for subj, score in zip(subjects, scores)},
     "Guardian": {
         "Name": guardian_name.title(),
-        "Phone number": guardian_phone,
-        "Address": guardian_address
-},
+        "Phone": guardian_phone,
+        "Address" : guardian_address
+    },
     "Hobbies": list(hobbies_set)
 }
 
-# Data Collected
+# Derived Data
 student_profile["Academics"]["Average"] = sum(scores) / len(scores)
-student_profile ["Personal Details"]["Initials"] = "".join([n[0] for n in student_name.split()])
+student_profile["Personal Details"]["Initials"] = "".join([n[0] for n in name.split()])
 student_profile["Hobbies Count"] = len(hobbies_set)
 
 # Output Section
 print("\n\t=== STUDENT PROFILE ===")
-print(f"Name:\t\t{student_profile['Basic Info']['Name']}")
-print(f"Age:\t\t{student_profile['Basic Info']['Age']}")
-print(f"Gender:\t\t{student_profile['Basic Info']['Gender']}")
-print(f"Initials:\t{student_profile['Basic Info']['Initials']}")
+print(f"Name:\t\t{student_profile['Personal Details']['Name']}")
+print(f"Age:\t\t{student_profile['Personal Details']['Age']}")
+print(f"Gender:\t\t{student_profile['Personal Details']['Gender']}")
+print(f"Initials:\t{student_profile['Personal Details']['Initials']}")
+print(f"Matric_Number:\t{student_profile['Personal Details']['Matric_Number']}")
+print(f"Email:\t\t{student_profile['Personal Details']['Email']}")
 
 print("\n--- Academic Scores ---")
 print(student_profile["Academics"])
 
-print("\n--- Guardian Infomation ---")
+print("\n--- Guardian Info ---")
 print(student_profile["Guardian"])
 
 print("\n--- Hobbies ---")
@@ -78,10 +73,6 @@ print(student_profile["Hobbies"])
 
 print(f"\nTotal Hobbies:\t{student_profile['Hobbies Count']}")
 print(f"Average Score:\t{student_profile['Academics']['Average']:.2f}")
-
-
-
-
 
 
 
