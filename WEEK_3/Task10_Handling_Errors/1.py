@@ -11,9 +11,11 @@ while True:
     print("5. Data")
     print("6. Exit")
     order = (input("Enter choice: "))
-
+    
     if order == "1":
-        pin = int(input("Enter your pin: "))
+        
+    # ValueError – Invalid value for a function.
+        pin = int("five hundred naira")            # cannot convert string to int
         print(f"Your balance is: #{balance}")  
          
     elif order == "2":
